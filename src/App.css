@@ -13,5 +13,13 @@
 
 
 .table {
-  color: black;
+  width:80%;
+}
+
+.Success {
+  color: chartreuse;
+}
+
+.Failure {
+  color: #d21d20;
 }
