@@ -37,9 +37,22 @@ export default class ReleaseTable extends Component {
     render() {
         return (
             <div>
-                {
-                    this.state.tags.map((k) => <p>{k.name}</p>)
-                }
+                <table className="table">
+
+                    <thead>
+                    {
+                    this.state.tags.map((k) => <th scope="col">{k.name}</th>)
+                    }
+                    </thead>
+                    
+
+                    <tr>
+                        <th scope="row">Customer</th>
+                        <td>Green</td>
+                        <td>Green</td>
+                        <td>Red</td>
+                    </tr>
+                </table>
             </div>
         )
     }
