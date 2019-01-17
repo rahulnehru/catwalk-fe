@@ -1,8 +1,6 @@
 import {Component} from "react";
 import React from "react";
-import red from "./red.png"
-import ylw from "./ylw.png"
-import grn from "./grn.png"
+
 
 
 export default class ReleaseTable extends Component {
@@ -83,6 +81,80 @@ export default class ReleaseTable extends Component {
                             state: 'red'
                         }
                     ]
+                },
+                {
+                    name: 'catalogue',
+                    tags: [
+                        {
+                            name: 'AUK1',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK2',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK3',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK4',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK5',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK6',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK7',
+                            state: 'yellow'
+                        },
+                        {
+                            name: 'AUK8',
+                            state: 'red'
+                        }
+                    ]
+                },
+                {
+                    name: 'admin',
+                    tags: [
+                        {
+                            name: 'AUK1',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK2',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK3',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK4',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK5',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK6',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK7',
+                            state: 'yellow'
+                        },
+                        {
+                            name: 'AUK8',
+                            state: 'red'
+                        }
+                    ]
                 }
             ]
         }
@@ -91,20 +163,15 @@ export default class ReleaseTable extends Component {
 
     createTable = () => {
         let table = [];
-        for (let component = 0; component < this.state.components.length; component++) {
-            let name = this.state.components[component].name;
+        for (let component of this.state.components) {
+            let name = component.name;
             let row = [];
             row.push(<td key={name}>{name}</td>);
-            for (let tag = 0; tag < this.state.components[component].tags.length; tag++) {
-                let state = this.state.components[component].tags[tag].state;
-                if(state === 'green'){
-                    row.push(<td><img src={grn}/></td>)
-                } else if (state === 'yellow') {
-                    row.push(<td><img src={ylw}/></td>)
-                } else {
-                    row.push(<td><img src={red}/></td>)
-                }
-
+            for (let tag of component.tags) {
+                let state = tag.state;
+                if (state === 'green') {row.push(<td><button type="button" className="btn btn-outline-success"/></td>)}
+                else if (state === 'yellow') { row.push(<td><button type="button" className="btn btn-outline-warning"/></td>) }
+                else {row.push(<td><button type="button" className="btn btn-outline-danger"/></td>)}
             }
             table.push(<tr>{row}</tr>);
         }
@@ -127,10 +194,10 @@ export default class ReleaseTable extends Component {
         return (
             <table className="table">
                 <thead className="thead-dark">
-                    <tr>
-                        <th scope="col">Component</th>
-                        {this.createReleaseColumns()}
-                    </tr>
+                <tr>
+                    <th scope="col">Component</th>
+                    {this.createReleaseColumns()}
+                </tr>
                 </thead>
                 <tbody>
                 {this.createTable()}

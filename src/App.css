@@ -23,3 +23,12 @@
 .Failure {
   color: #d21d20;
 }
+
+.modal-backdrop,
+.modal-backdrop.fade.in{
+  opacity: 0.5;
+  filter: alpha(opacity=100);
+  background: #727474;
+}
+
+
