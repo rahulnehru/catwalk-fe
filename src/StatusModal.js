@@ -11,7 +11,7 @@ export default class StatusModal extends Component {
         this.handleHide = this.handleHide.bind(this);
 
         this.state = {
-            show: true
+            show: false
         };
     }
 
