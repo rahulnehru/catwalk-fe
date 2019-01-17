@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const render = Component => ReactDOM.render(<Component />, document.getElementById('root'));
 
-render(App)
+render(App);
 
 if (module.hot) {
   module.hot.accept('./App', () => {
