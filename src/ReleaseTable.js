@@ -1,5 +1,8 @@
 import {Component} from "react";
 import React from "react";
+import red from "./red.png"
+import ylw from "./ylw.png"
+import grn from "./grn.png"
 
 
 export default class ReleaseTable extends Component {
@@ -12,14 +15,34 @@ export default class ReleaseTable extends Component {
                     tags: [
                         {
                             name: 'AUK1',
-                            state: 'red'
+                            state: 'green'
                         },
                         {
                             name: 'AUK2',
-                            state: 'red'
+                            state: 'green'
                         },
                         {
                             name: 'AUK3',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK4',
+                            state: 'yellow'
+                        },
+                        {
+                            name: 'AUK5',
+                            state: 'red'
+                        },
+                        {
+                            name: 'AUK6',
+                            state: 'red'
+                        },
+                        {
+                            name: 'AUK7',
+                            state: 'red'
+                        },
+                        {
+                            name: 'AUK8',
                             state: 'red'
                         }
                     ]
@@ -29,14 +52,34 @@ export default class ReleaseTable extends Component {
                     tags: [
                         {
                             name: 'AUK1',
-                            state: 'red'
+                            state: 'green'
                         },
                         {
                             name: 'AUK2',
-                            state: 'red'
+                            state: 'green'
                         },
                         {
                             name: 'AUK3',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK4',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK5',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK6',
+                            state: 'green'
+                        },
+                        {
+                            name: 'AUK7',
+                            state: 'yellow'
+                        },
+                        {
+                            name: 'AUK8',
                             state: 'red'
                         }
                     ]
@@ -54,7 +97,14 @@ export default class ReleaseTable extends Component {
             row.push(<td key={name}>{name}</td>);
             for (let tag = 0; tag < this.state.components[component].tags.length; tag++) {
                 let state = this.state.components[component].tags[tag].state;
-                row.push(<td>{state}</td>)
+                if(state === 'green'){
+                    row.push(<td><img src={grn}/></td>)
+                } else if (state === 'yellow') {
+                    row.push(<td><img src={ylw}/></td>)
+                } else {
+                    row.push(<td><img src={red}/></td>)
+                }
+
             }
             table.push(<tr>{row}</tr>);
         }
