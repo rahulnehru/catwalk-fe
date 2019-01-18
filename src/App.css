@@ -2,11 +2,6 @@
   --rowHeight: 100px
 }
 
-header {
-  text-align: center;
-}
-
-
 .App {
   text-align: center;
 }
@@ -38,4 +33,22 @@ header {
   opacity: 0.5;
   filter: alpha(opacity=100);
   background: #727474;
+}
+
+header {
+  background: #272345;
+  color: white;
+  text-align: center;
+  box-shadow: #4e555b;
+}
+
+h4 {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 36px;
+  margin-bottom: 0;
+}
+
+h3 {
+  font-family: 'Open Sans', bold;
+  font-size: 12px;
 }

@@ -31,8 +31,8 @@ class ReleaseTable extends Component {
     };
 
     getStatusButton = (state) => {
-        const buttonStyle = state === "green" ? "success" : state === "yellow" ? "warning" : "danger";
-        return <Button className="status-button" bsStyle={buttonStyle}/>
+        return state === "green" ? <div className="dot-green" /> : state === "yellow" ?  <div className="dot-yellow" /> :  <div className="dot-red" />
+
     };
 
     getRowForTag = (tag) => {
@@ -52,21 +52,24 @@ class ReleaseTable extends Component {
         let headers = this.getComponents();
         return (
             <div className="release-table">
-                <div className="tag-row">
-                    <h3>Tag</h3>
-                    {headers.map(h => <h3>{h}</h3>)}
+                <div className="header-row">
+                    <h3>TAG</h3>
+                    {headers.map(h => <h3>{h.toUpperCase()}</h3>)}
                 </div>
                 {
                     this.state.tags.map(t =>
+                        <div className="row">
                         <div className="tag-row">
                         <div className="green-stripe" />
                                 <h3>
-                                    {t.name}
+                                    {t.name.toUpperCase()}
                                 </h3>
                             {
                                 this.getRowForTag(t)
                             }
                         </div>
+                        </div>
+
                     )
 
                 }

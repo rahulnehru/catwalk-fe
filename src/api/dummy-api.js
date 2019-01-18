@@ -8,18 +8,18 @@ const dummyApiResponse = [
             },
             {
                 name: "Payments",
-                status: "red"
+                status: "yellow"
             },
             {
                 name: "Catalogue",
-                status: "red"
+                status: "green"
             },
             {
                 name: "Admin",
-                status: "red"
+                status: "green"
             },
             {
-                name: "Submission",
+                name: "CWI",
                 status: "red"
             }
         ]
@@ -33,15 +33,15 @@ const dummyApiResponse = [
             },
             {
                 name: "Payments",
-                status: "red"
+                status: "green"
             },
             {
                 name: "Catalogue",
-                status: "red"
+                status: "green"
             },
             {
                 name: "Admin",
-                status: "red"
+                status: "green"
             },
             {
                 name: "CWI",

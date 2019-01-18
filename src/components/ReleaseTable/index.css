@@ -1,5 +1,4 @@
 .tag-row {
-    margin: 10px 0;
     display: grid;
     grid-template-rows: repeat(1, var(--rowHeight));
     grid-auto-flow: column;
@@ -7,6 +6,25 @@
     justify-items: center;
     align-items: center;
     background-color: white;
+
+}
+
+.row {
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    margin-bottom: 5px;
+}
+
+.header-row {
+    margin: 0px 0;
+    display: grid;
+    grid-template-rows: repeat(1, var(--rowHeight));
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    background: #272345;
+    color: white;
 }
 
 .status-button {
@@ -30,4 +48,34 @@
     border-left   : 25px solid green;
     border-right  : 100px solid transparent;
     border-bottom : 100px solid transparent;
+}
+
+.dot-green {
+    width: 35px;
+    height: 35px;
+    background-image: radial-gradient(#019745 , #00642D);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: 0 0 20px grey;
+}
+
+.dot-red {
+    width: 35px;
+    height: 35px;
+    background-image: radial-gradient(#ff0096 , #ff005d);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: 0 0 20px grey;
+}
+
+.dot-yellow {
+    width: 35px;
+    height: 35px;
+    background-color: #f2f2f5;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: 0 0 20px grey;
 }
