@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Button} from "react-bootstrap";
 
 import { dummyApiResponse } from "../../api/dummy-api";
+import "./index.css";
 
 class ReleaseTable extends Component {
     constructor() {
@@ -31,7 +32,7 @@ class ReleaseTable extends Component {
 
     getStatusButton = (state) => {
         const buttonStyle = state === "green" ? "success" : state === "yellow" ? "warning" : "danger";
-        return <Button bsStyle={buttonStyle}/>
+        return <Button className="status-button" bsStyle={buttonStyle}/>
     };
 
     getRowForTag = (tag) => {
@@ -41,7 +42,7 @@ class ReleaseTable extends Component {
         for (let c of cs) {
             let t = tag.components.find(o => o.name === c);
             if (t) {
-                row.push(<td>{this.getStatusButton(t.status)}</td>)
+                row.push(this.getStatusButton(t.status))
             } else row.push(<td/>);
         }
         return row;
@@ -50,24 +51,27 @@ class ReleaseTable extends Component {
     render() {
         let headers = this.getComponents();
         return (
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tag</th>
-                        {headers.map(h => <th>{h}</th>)}
-                    </tr>
-                </thead>
-                <tbody>
+            <div className="release-table">
+                <div className="tag-row">
+                    <h3>Tag</h3>
+                    {headers.map(h => <h3>{h}</h3>)}
+                </div>
                 {
                     this.state.tags.map(t =>
-                        <tr>
-                            <td>{t.name}</td>
-                            {this.getRowForTag(t)}
-                        </tr>
+                        <div className="tag-row">
+                        <div className="green-stripe" />
+                                <h3>
+                                    {t.name}
+                                </h3>
+                            {
+                                this.getRowForTag(t)
+                            }
+                        </div>
                     )
+
                 }
-                </tbody>
-            </table>
+
+            </div>
         )
     }
 }
