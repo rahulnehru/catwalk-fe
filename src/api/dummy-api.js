@@ -48,6 +48,81 @@ const dummyApiResponse = [
                 status: "green"
             }
         ]
+    },
+    {
+        name: "AUK3",
+        components: [
+            {
+                name: "Customer",
+                status: "green"
+            },
+            {
+                name: "Payments",
+                status: "green"
+            },
+            {
+                name: "Catalogue",
+                status: "green"
+            },
+            {
+                name: "Admin",
+                status: "green"
+            },
+            {
+                name: "CWI",
+                status: "green"
+            }
+        ]
+    },
+    {
+        name: "AUK4",
+        components: [
+            {
+                name: "Customer",
+                status: "green"
+            },
+            {
+                name: "Payments",
+                status: "green"
+            },
+            {
+                name: "Catalogue",
+                status: "green"
+            },
+            {
+                name: "Admin",
+                status: "green"
+            },
+            {
+                name: "CWI",
+                status: "green"
+            }
+        ]
+    },
+    {
+        name: "AUK5",
+        components: [
+            {
+                name: "Customer",
+                status: "green"
+            },
+            {
+                name: "Payments",
+                status: "green"
+            },
+            {
+                name: "Catalogue",
+                status: "green"
+            },
+            {
+                name: "Admin",
+                status: "green"
+            },
+            {
+                name: "CWI",
+                status: "green"
+            }
+        ]
     }
 ];
 

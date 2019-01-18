@@ -6,7 +6,16 @@
     justify-items: center;
     align-items: center;
     background-color: white;
+    height: 80px;
+}
 
+.table-body {
+    top: 18%;
+    position: fixed;
+    width: 96%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    float: left;
 }
 
 .row {
@@ -15,8 +24,39 @@
     margin-bottom: 5px;
 }
 
+.expand {
+    width: 36px;
+    height: 36px;
+    margin-top: 25px;
+    border-radius: 50% 50%;
+    box-shadow: 2px 2px 20px  #4e555b;
+    left: 96.3%;
+    position: fixed;
+    float: right;
+    align-items: center;
+    background-color: #f2f2f5;
+}
+
+.expand h1 {
+    justify-items: center;
+    align-items: center;
+    font-size: 34px;
+    margin-top: -3px;
+}
+
+
+
+.row:hover {
+    width: 100%;
+    margin-bottom: 5px;
+    margin-left: 0%;
+    margin-right: 0%;
+    box-shadow: 5px 5px 20px  #4e555b;
+    z-index: 2000 !important;
+}
+
 .header-row {
-    margin: 0px 0;
+    margin-right: 1%;
     display: grid;
     grid-template-rows: repeat(1, var(--rowHeight));
     grid-auto-flow: column;
@@ -45,15 +85,19 @@
     position: absolute;
     width        : 0;
     height       : 0;
-    border-left   : 25px solid green;
-    border-right  : 100px solid transparent;
-    border-bottom : 100px solid transparent;
+    border-left   : 25px solid #019745;
+    border-right  : 80px solid transparent;
+    border-bottom : 80px solid transparent;
+}
+
+.row:hover .green-stripe{
+    border-left   : 25px solid #ff0096;
 }
 
 .dot-green {
     width: 35px;
     height: 35px;
-    background-image: radial-gradient(#019745 , #00642D);
+    background-image: radial-gradient(#019745 , #007b34);
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;

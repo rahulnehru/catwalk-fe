@@ -52,10 +52,13 @@ class ReleaseTable extends Component {
         let headers = this.getComponents();
         return (
             <div className="release-table">
+                <header>
                 <div className="header-row">
                     <h3>TAG</h3>
                     {headers.map(h => <h3>{h.toUpperCase()}</h3>)}
                 </div>
+                </header>
+                <div className="table-body">
                 {
                     this.state.tags.map(t =>
                         <div className="row">
@@ -67,12 +70,14 @@ class ReleaseTable extends Component {
                             {
                                 this.getRowForTag(t)
                             }
+                            <div className="expand"><h1>+</h1></div>
                         </div>
                         </div>
 
                     )
 
                 }
+                </div>
 
             </div>
         )
