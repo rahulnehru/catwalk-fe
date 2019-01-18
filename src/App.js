@@ -1,18 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
-import ReleaseTable from './ReleaseTable';
+import ReleaseTable from './components/ReleaseTable/ReleaseTable';
 
-class App extends Component {
-
-
-
-    render() {
-        return (
-            <div className="App">
-                <ReleaseTable/>
-            </div>
-        );
-    }
-}
+const App = () => (
+    <div className="App">
+        <ReleaseTable/>
+    </div>
+);
 
 export default App;
