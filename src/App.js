@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
 import ReleaseTable from './ReleaseTable';
-import StatusModal from "./StatusModal";
 
 class App extends Component {
 
@@ -11,7 +10,6 @@ class App extends Component {
         return (
             <div className="App">
                 <ReleaseTable/>
-                <StatusModal/>
             </div>
         );
     }

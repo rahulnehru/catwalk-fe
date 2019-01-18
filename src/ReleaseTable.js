@@ -1,209 +1,129 @@
 import {Component} from "react";
 import React from "react";
-
+import {Table, Button} from "react-bootstrap";
 
 
 export default class ReleaseTable extends Component {
     constructor() {
         super();
         this.state = {
-            components: [
+            tags: [
                 {
-                    name: 'customer',
-                    tags: [
+                    name: "AUK1",
+                    components: [
                         {
-                            name: 'AUK1',
-                            state: 'green'
+                            name: "Customer",
+                            status: "red"
                         },
                         {
-                            name: 'AUK2',
-                            state: 'green'
+                            name: "Payments",
+                            status: "red"
                         },
                         {
-                            name: 'AUK3',
-                            state: 'green'
+                            name: "Catalogue",
+                            status: "red"
                         },
                         {
-                            name: 'AUK4',
-                            state: 'yellow'
+                            name: "Admin",
+                            status: "red"
                         },
                         {
-                            name: 'AUK5',
-                            state: 'red'
-                        },
-                        {
-                            name: 'AUK6',
-                            state: 'red'
-                        },
-                        {
-                            name: 'AUK7',
-                            state: 'red'
-                        },
-                        {
-                            name: 'AUK8',
-                            state: 'red'
+                            name: "Submission",
+                            status: "red"
                         }
                     ]
                 },
                 {
-                    name: 'payments',
-                    tags: [
+                    name: "AUK2",
+                    components: [
                         {
-                            name: 'AUK1',
-                            state: 'green'
+                            name: "Customer",
+                            status: "red"
                         },
                         {
-                            name: 'AUK2',
-                            state: 'green'
+                            name: "Payments",
+                            status: "red"
                         },
                         {
-                            name: 'AUK3',
-                            state: 'green'
+                            name: "Catalogue",
+                            status: "red"
                         },
                         {
-                            name: 'AUK4',
-                            state: 'green'
+                            name: "Admin",
+                            status: "red"
                         },
                         {
-                            name: 'AUK5',
-                            state: 'green'
-                        },
-                        {
-                            name: 'AUK6',
-                            state: 'green'
-                        },
-                        {
-                            name: 'AUK7',
-                            state: 'yellow'
-                        },
-                        {
-                            name: 'AUK8',
-                            state: 'red'
-                        }
-                    ]
-                },
-                {
-                    name: 'catalogue',
-                    tags: [
-                        {
-                            name: 'AUK1',
-                            state: 'green'
-                        },
-                        {
-                            name: 'AUK2',
-                            state: 'green'
-                        },
-                        {
-                            name: 'AUK3',
-                            state: 'green'
-                        },
-                        {
-                            name: 'AUK4',
-                            state: 'green'
-                        },
-                        {
-                            name: 'AUK5',
-                            state: 'green'
-                        },
-                        {
-                            name: 'AUK6',
-                            state: 'green'
-                        },
-                        {
-                            name: 'AUK7',
-                            state: 'yellow'
-                        },
-                        {
-                            name: 'AUK8',
-                            state: 'red'
-                        }
-                    ]
-                },
-                {
-                    name: 'admin',
-                    tags: [
-                        {
-                            name: 'AUK1',
-                            state: 'green'
-                        },
-                        {
-                            name: 'AUK2',
-                            state: 'green'
-                        },
-                        {
-                            name: 'AUK3',
-                            state: 'green'
-                        },
-                        {
-                            name: 'AUK4',
-                            state: 'green'
-                        },
-                        {
-                            name: 'AUK5',
-                            state: 'green'
-                        },
-                        {
-                            name: 'AUK6',
-                            state: 'green'
-                        },
-                        {
-                            name: 'AUK7',
-                            state: 'yellow'
-                        },
-                        {
-                            name: 'AUK8',
-                            state: 'red'
+                            name: "CWI",
+                            status: "green"
                         }
                     ]
                 }
             ]
+
         }
     }
 
 
-    createTable = () => {
-        let table = [];
-        for (let component of this.state.components) {
-            let name = component.name;
-            let row = [];
-            row.push(<td key={name}>{name}</td>);
-            for (let tag of component.tags) {
-                let state = tag.state;
-                if (state === 'green') {row.push(<td><button type="button" className="btn btn-outline-success"/></td>)}
-                else if (state === 'yellow') { row.push(<td><button type="button" className="btn btn-outline-warning"/></td>) }
-                else {row.push(<td><button type="button" className="btn btn-outline-danger"/></td>)}
+    getComponents = () => {
+        let components = [];
+        for (let tag of this.state.tags) {
+            for (let component of tag.components) {
+                if (!components.includes(component.name)) {
+                    components.push(component.name);
+                }
             }
-            table.push(<tr>{row}</tr>);
         }
-        return table;
+        return components;
     };
 
-    createReleaseColumns = () => {
-        let headers = [];
-        let comps = this.state.components;
-        if (comps.length > 0 && comps[0].tags.length > 0) {
-            let tags = comps[0].tags;
-            for (let tag of tags) {
-                headers.push(<th scope="col" key={tag.name}>{tag.name}</th>)
-            }
-        }
-        return headers;
+
+
+    getStatusButton = (state) => {
+        let button = [];
+        if (state === 'green') {button.push(<td><Button bsStyle="success"/></td>)}
+        else if (state === 'yellow') { button.push(<td><Button bsStyle="warning"/></td>) }
+        else {button.push(<td><Button bsStyle="danger"/></td>)}
+        return button;
     };
+
+
+    getRowForTag = (tag) => {
+        let cs = this.getComponents();
+        let row = [];
+
+        for (let c of cs) {
+            let t = tag.components.find(o => o.name === c);
+            if (t) {
+                row.push(<td>{this.getStatusButton(t.status)}</td>)
+            } else row.push(<td/>);
+        }
+        return row;
+    };
+
 
     render() {
+        let headers = this.getComponents();
         return (
-            <table className="table">
-                <thead className="thead-dark">
+            <Table>
+                <thead>
                 <tr>
-                    <th scope="col">Component</th>
-                    {this.createReleaseColumns()}
+                    <th>Tag</th>
+                    {headers.map((h) => <th>{h}</th>)}
                 </tr>
                 </thead>
                 <tbody>
-                {this.createTable()}
+                {
+                    this.state.tags.map(t =>
+                        <tr>
+                            <td>{t.name}</td>
+                            {this.getRowForTag(t)}
+                        </tr>
+                    )
+                }
                 </tbody>
-            </table>
+            </Table>
         )
     }
+
 
 }
