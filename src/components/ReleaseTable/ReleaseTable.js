@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import { dummyApiResponse } from "../../api/dummy-api";
+import { dummyApiResponseJson } from "../../api/dummy-api_json";
 import "./index.css";
 
 class ReleaseTable extends Component {
@@ -14,7 +14,7 @@ class ReleaseTable extends Component {
     componentWillMount = () => {
         // Specify number of tags to simulate
         this.setState({
-            tags: dummyApiResponse(5)
+            tags: dummyApiResponseJson(5)
         })
     };
 
@@ -22,8 +22,8 @@ class ReleaseTable extends Component {
         let components = [];
         for (let tag of this.state.tags) {
             for (let component of tag.components) {
-                if (!components.includes(component.name)) {
-                    components.push(component.name);
+                if (!components.includes(component.component)) {
+                    components.push(component.component);
                 }
             }
         }
@@ -38,7 +38,7 @@ class ReleaseTable extends Component {
         let row = [];
 
         for (let c of cs) {
-            let t = tag.components.find(o => o.name === c);
+            let t = tag.components.find(o => o.component === c);
             if (t) {
                 row.push(this.getStatusButton(t))
             } else row.push(<td/>);
@@ -72,7 +72,7 @@ class ReleaseTable extends Component {
                             <div key={t.name} className={`catwalk-row tag-row`} >
                                 <div className="green-stripe" />
                                 <h3>
-                                    {t.name.toUpperCase()}
+                                    {t.tag.toUpperCase()}
                                 </h3>
                                 {
                                     this.getRowForTag(t)
