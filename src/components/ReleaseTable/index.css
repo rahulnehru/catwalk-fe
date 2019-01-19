@@ -7,6 +7,13 @@
     align-items: center;
 }
 
+.row:hover, .row.expanded {
+    margin: -10px -10px;
+    box-shadow: 2px 2px 20px #4e555b;
+    position: relative;
+    z-index: 100;
+}
+
 .tag-row {
     background-color: white;
     margin: 5px 0;
@@ -14,10 +21,10 @@
 }
 
 .table-body {
-    width: 98%;
+    width: 100%;
     margin: -1% 0 0 0;
     overflow-y: scroll;
-    padding-right: 2%;
+    padding-right: 4%;
     padding-left: 2%;
     padding-bottom: 2%;
     max-height: 85vh;
@@ -32,21 +39,27 @@
     align-items: center;
     background-color: #f2f2f5;
     position: absolute;
+    cursor: pointer;
 }
 
 .expand h1 {
     justify-items: center;
     align-items: center;
     font-size: 34px;
-    margin-top: -3px;
+    margin-top: 0;
 }
 
-.tag-row:hover {
-    margin: -10px -10px;
-    box-shadow: 5px 5px 20px  #4e555b;
-    z-index: 10;
-    cursor: pointer;
+.tag-row:hover, div.expanded .tag-row {
     grid-template-rows: repeat(1, 100px);
+}
+
+.expanded.tag-row {
+    grid-template-rows: repeat(1, 100px);
+}
+
+.expanded.tag-row:hover {
+    z-index: auto;
+    box-shadow: none;
 }
 
 .header-row {
@@ -68,7 +81,7 @@
     border-bottom : 80px solid transparent;
 }
 
-.tag-row:hover .green-stripe{
+.row:hover .green-stripe, .expanded .green-stripe {
     border-left   : 25px solid #ff0096;
     border-bottom : 100px solid transparent;
 }
@@ -83,13 +96,95 @@
 }
 
 .dot.dot-green {
-    background-image: radial-gradient(#019745 , #007b34);
+    background-image: var(--green);
 }
 
 .dot.dot-red {
-    background-image: radial-gradient(#ff0096 , #ff005d);
+    background-image: var(--red);
 }
 
 .dot.dot-yellow {
     background-color: #f2f2f5;
+}
+
+.expanded-tag-row {
+    position: relative;
+    height: 500px;
+    margin-top: -7px;
+    background-color: white;
+    display: grid;
+    grid-template-areas:
+            "title title title"
+            "subtitle subtitle subtitle"
+            "completed outstanding contacts";
+    grid-template-rows: 50px 50px 350px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 5px 3%;
+}
+
+hr {
+    height: 2px;
+    border-top: 1px solid #e0dede;
+}
+
+hr.catwalk-hr {
+    position: absolute;
+    top: 0;
+    right: 2%;
+    width: 96%;
+}
+
+hr.expanded-tag-row-bottom-hr {
+    position: absolute;
+    width: 60%;
+    bottom: 50px;
+    left: 2%;
+}
+
+.expanded-tag-row-h1 {
+    grid-area: title;
+    justify-self: left;
+}
+.expanded-tag-row-h2 {
+    grid-area: subtitle;
+    justify-self: left;
+}
+.expanded-tag-row-completed {
+    grid-area: completed;
+    justify-self: left;
+}
+.expanded-tag-row-outstanding {
+    grid-area: outstanding;
+    justify-self: left;
+}
+.expanded-tag-row-contacts {
+    grid-area: contacts;
+}
+
+.contacts {
+    background-color: var(--darkBlue);
+    color: white;
+    height: 80%;
+    width: 80%;
+    display: grid;
+    grid-template-areas:
+            "contact-title"
+            "contact-icon"
+            "contact-details"
+;
+    grid-template-columns: 100%;
+    grid-template-rows: 50px 100px 100px;
+    justify-items: right;
+    padding: 20px;
+    text-align: right;
+}
+
+.expanded-tag-row ul {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left;
+}
+
+.expanded-tag-row ul li {
+    margin: 10px 0;
 }

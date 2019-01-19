@@ -9,6 +9,7 @@ const dummyApiResponse = (length) => {
 const dummyResponse = [
     {
         name: "AUK1",
+        expanded: false,
         components: [
             {
                 name: "Customer",
@@ -34,6 +35,7 @@ const dummyResponse = [
     },
     {
         name: "AUK2",
+        expanded: false,
         components: [
             {
                 name: "Customer",
@@ -59,6 +61,7 @@ const dummyResponse = [
     },
     {
         name: "AUK3",
+        expanded: false,
         components: [
             {
                 name: "Customer",
@@ -84,6 +87,7 @@ const dummyResponse = [
     },
     {
         name: "AUK4",
+        expanded: false,
         components: [
             {
                 name: "Customer",
@@ -109,6 +113,7 @@ const dummyResponse = [
     },
     {
         name: "AUK5",
+        expanded: false,
         components: [
             {
                 name: "Customer",
@@ -134,6 +139,7 @@ const dummyResponse = [
     },
     {
         name: "AUK6",
+        expanded: false,
         components: [
             {
                 name: "Customer",
@@ -159,6 +165,7 @@ const dummyResponse = [
     },
     {
         name: "AUK7",
+        expanded: false,
         components: [
             {
                 name: "Customer",
@@ -184,6 +191,7 @@ const dummyResponse = [
     },
     {
         name: "AUK8",
+        expanded: false,
         components: [
             {
                 name: "Customer",
@@ -209,6 +217,7 @@ const dummyResponse = [
     },
     {
         name: "AUK9",
+        expanded: false,
         components: [
             {
                 name: "Customer",
@@ -234,6 +243,7 @@ const dummyResponse = [
     },
     {
         name: "AUK10",
+        expanded: false,
         components: [
             {
                 name: "Customer",
@@ -259,6 +269,7 @@ const dummyResponse = [
     },
     {
         name: "AUK11",
+        expanded: false,
         components: [
             {
                 name: "Customer",
@@ -284,6 +295,7 @@ const dummyResponse = [
     },
     {
         name: "AUK12",
+        expanded: false,
         components: [
             {
                 name: "Customer",
@@ -309,6 +321,7 @@ const dummyResponse = [
     },
     {
         name: "AUK13",
+        expanded: false,
         components: [
             {
                 name: "Customer",
@@ -334,6 +347,7 @@ const dummyResponse = [
     },
     {
         name: "AUK14",
+        expanded: false,
         components: [
             {
                 name: "Customer",
@@ -359,6 +373,7 @@ const dummyResponse = [
     },
     {
         name: "AUK15",
+        expanded: false,
         components: [
             {
                 name: "Customer",

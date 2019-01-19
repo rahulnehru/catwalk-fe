@@ -1,5 +1,9 @@
 :root {
-  --rowHeight: 80px
+  --rowHeight: 80px;
+  --green: radial-gradient(#019745 , #007b34);
+  --white: #F2F2F5;
+  --darkBlue: #272345 ;
+  --red: radial-gradient(#019745 , #007b34);
 }
 
 .App {
@@ -15,6 +19,28 @@
   color: #727474;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 10px;
+  font-family: 'Open Sans', bold, serif;
+  line-height: 1.1;
+  color: inherit;
+}
+
+h1, h2 {
+  font-weight: 400;
+}
+
+h3 {
+  font-weight: 200;
+}
+
+h1, h2, h3 {
+  margin-top: 20px;
+}
+
+h4, h5, h6 {
+  margin-top: 10px;
+}
 
 .table {
   width:80%;
