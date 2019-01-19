@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {Button} from "react-bootstrap";
 
 import { dummyApiResponse } from "../../api/dummy-api";
 import "./index.css";
@@ -13,8 +12,9 @@ class ReleaseTable extends Component {
     }
 
     componentWillMount = () => {
+        // Specify number of tags to simulate
         this.setState({
-            tags: dummyApiResponse
+            tags: dummyApiResponse(5)
         })
     };
 
@@ -30,10 +30,8 @@ class ReleaseTable extends Component {
         return components;
     };
 
-    getStatusButton = (state) => {
-        return state === "green" ? <div className="dot-green" /> : state === "yellow" ?  <div className="dot-yellow" /> :  <div className="dot-red" />
-
-    };
+    getStatusButton = ({status, name}) =>
+        status === "green" ? <div key={name} className="dot dot-green" /> : status === "yellow" ? <div key={name} className="dot dot-yellow" /> : <div key={name} className="dot dot-red" />;
 
     getRowForTag = (tag) => {
         let cs = this.getComponents();
@@ -42,10 +40,14 @@ class ReleaseTable extends Component {
         for (let c of cs) {
             let t = tag.components.find(o => o.name === c);
             if (t) {
-                row.push(this.getStatusButton(t.status))
+                row.push(this.getStatusButton(t))
             } else row.push(<td/>);
         }
         return row;
+    };
+
+    onExpandClick = () => {
+        console.log('Expand clicked!')
     };
 
     render() {
@@ -53,32 +55,29 @@ class ReleaseTable extends Component {
         return (
             <div className="release-table">
                 <header>
-                <div className="header-row">
-                    <h3>TAG</h3>
-                    {headers.map(h => <h3>{h.toUpperCase()}</h3>)}
-                </div>
+                    <div className="catwalk-row header-row">
+                        <h3>TAG</h3>
+                        {headers.map(h => <h3 key={h}>{h.toUpperCase()}</h3>)}
+                    </div>
                 </header>
                 <div className="table-body">
                 {
                     this.state.tags.map(t =>
-                        <div className="row">
-                        <div className="tag-row">
-                        <div className="green-stripe" />
-                                <h3>
-                                    {t.name.toUpperCase()}
-                                </h3>
+                        <div key={t.name} className="catwalk-row tag-row">
+                            <div className="green-stripe" />
+                            <h3>
+                                {t.name.toUpperCase()}
+                            </h3>
                             {
                                 this.getRowForTag(t)
                             }
-                            <div className="expand"><h1>+</h1></div>
+                            <div className="expand" onClick={this.onExpandClick}>
+                                <h1>+</h1>
+                            </div>
                         </div>
-                        </div>
-
                     )
-
                 }
                 </div>
-
             </div>
         )
     }
