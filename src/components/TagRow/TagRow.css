@@ -1,0 +1,76 @@
+.row:hover, .row.expanded {
+    margin: -10px -10px;
+    box-shadow: 2px 2px 20px #4e555b;
+    position: relative;
+    z-index: 100;
+}
+
+.tag-row {
+    background-color: white;
+    margin: 5px 0;
+    position: relative;
+}
+
+.expanded.tag-row:hover {
+    z-index: auto;
+    box-shadow: none;
+}
+
+.tag-row:hover, div.expanded .tag-row {
+    grid-template-rows: repeat(1, 100px);
+}
+
+.dot {
+    width: 35px;
+    height: 35px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: 0 0 20px grey;
+}
+
+.dot.dot-green {
+    background-image: var(--green);
+}
+
+.dot.dot-red {
+    background-image: var(--red);
+}
+
+.dot.dot-yellow {
+    background-color: #f2f2f5;
+}
+
+.green-stripe {
+    position: absolute;
+    left: 0;
+    width        : 0;
+    height       : 0;
+    border-left   : 25px solid #019745;
+    border-right  : 80px solid transparent;
+    border-bottom : 80px solid transparent;
+}
+
+.row:hover .green-stripe, .expanded .green-stripe {
+    border-left   : 25px solid #ff0096;
+    border-bottom : 100px solid transparent;
+}
+
+.expand {
+    width: 36px;
+    height: 36px;
+    border-radius: 50% 50%;
+    box-shadow: 2px 2px 20px  #4e555b;
+    left: 98.85%;
+    align-items: center;
+    background-color: #f2f2f5;
+    position: absolute;
+    cursor: pointer;
+}
+
+.expand h1 {
+    justify-items: center;
+    align-items: center;
+    font-size: 34px;
+    margin-top: 0;
+}

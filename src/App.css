@@ -2,8 +2,10 @@
   --rowHeight: 80px;
   --green: radial-gradient(#019745 , #007b34);
   --white: #F2F2F5;
-  --darkBlue: #272345 ;
+  --darkBlue: #272345;
   --red: radial-gradient(#019745 , #007b34);
+  --bold: 400;
+  --semiBold: 200;
 }
 
 .App {
@@ -27,11 +29,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2 {
-  font-weight: 400;
+  font-weight: var(--bold);
 }
 
 h3 {
-  font-weight: 200;
+  font-weight: var(--semiBold);
+  font-size: 12px;
 }
 
 h1, h2, h3 {
@@ -40,10 +43,6 @@ h1, h2, h3 {
 
 h4, h5, h6 {
   margin-top: 10px;
-}
-
-.table {
-  width:80%;
 }
 
 .Success {
@@ -72,9 +71,4 @@ h4 {
   font-family: 'Kaushan Script', cursive;
   font-size: 36px;
   margin-bottom: 0;
-}
-
-h3 {
-  font-family: 'Open Sans', bold;
-  font-size: 12px;
 }

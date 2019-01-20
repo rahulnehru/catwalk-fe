@@ -1,0 +1,69 @@
+.expanded-tag-row {
+    position: relative;
+    height: 500px;
+    margin-top: -7px;
+    background-color: white;
+    display: grid;
+    grid-template-areas:
+            "title title title"
+            "subtitle subtitle subtitle"
+            "completed outstanding contacts";
+    grid-template-rows: 50px 50px 350px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 5px 3%;
+}
+
+.expanded-tag-row-h1 {
+    grid-area: title;
+    justify-self: left;
+}
+.expanded-tag-row-h2 {
+    grid-area: subtitle;
+    justify-self: left;
+}
+.expanded-tag-row-completed {
+    grid-area: completed;
+    justify-self: left;
+}
+.expanded-tag-row-outstanding {
+    grid-area: outstanding;
+    justify-self: left;
+}
+.expanded-tag-row-contacts {
+    grid-area: contacts;
+}
+
+.contacts {
+    background-color: var(--darkBlue);
+    color: white;
+    height: 80%;
+    width: 80%;
+    display: grid;
+    grid-template-areas:
+            "contact-title"
+            "contact-icon"
+            "contact-details"
+;
+    grid-template-columns: 100%;
+    grid-template-rows: 50px 100px 100px;
+    justify-items: right;
+    padding: 20px;
+    text-align: right;
+}
+
+.expanded-tag-row ul {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left;
+}
+
+.expanded-tag-row ul li {
+    margin: 10px 0;
+}
+
+hr.expanded-tag-row-bottom-hr {
+    position: absolute;
+    width: 60%;
+    bottom: 50px;
+    left: 2%;
+}
