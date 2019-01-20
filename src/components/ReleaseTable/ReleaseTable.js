@@ -7,7 +7,8 @@ class ReleaseTable extends Component {
     constructor() {
         super();
         this.state = {
-            tags: []
+            tags: [],
+            extendedTagKey: -1
         }
     }
 
@@ -46,13 +47,12 @@ class ReleaseTable extends Component {
         return row;
     };
 
-    toggleExpandClick = (tagName) => {
-        console.log('Expand clicked!');
-        this.setState((prevState) => {
-            return {
-                tags: prevState.tags.map(t => t.name === tagName ? {...t, expanded: !t.expanded } : {...t, expanded: false} )
+    toggleExpandClick = (tagKey) => {
+        this.setState((prevState) => (
+            {
+                extendedTagKey: prevState.extendedTagKey === tagKey ? -1 : tagKey
             }
-        })
+        ))
     };
 
     render() {
@@ -68,7 +68,7 @@ class ReleaseTable extends Component {
                 <div className="table-body">
                 {
                     this.state.tags.map(t =>
-                        <div className={`row ${t.expanded === true ? "expanded" : ""}`}>
+                        <div className={`row ${t.key === this.state.extendedTagKey ? "expanded" : ""}`}>
                             <div key={t.name} className={`catwalk-row tag-row`} >
                                 <div className="green-stripe" />
                                 <h3>
@@ -77,12 +77,12 @@ class ReleaseTable extends Component {
                                 {
                                     this.getRowForTag(t)
                                 }
-                                <div className="expand" onClick={() => this.toggleExpandClick(t.name)}>
-                                    {t.expanded === true ? <h1 style={{marginTop: "-3px", marginLeft: "1px"}}>-</h1> : <h1>+</h1> }
+                                <div className="expand" onClick={() => this.toggleExpandClick(t.key)}>
+                                    {t.key === this.state.extendedTagKey ? <h1 style={{marginTop: "-3px", marginLeft: "1px"}}>-</h1> : <h1>+</h1> }
                                 </div>
                             </div>
                             {
-                                t.expanded === true &&
+                                t.key === this.state.extendedTagKey &&
 
                                 <div className="expanded-tag-row">
                                     <hr className="catwalk-hr" />
