@@ -4,11 +4,11 @@
     background-color: white;
     display: grid;
     grid-template-areas:
-            "title title title"
-            "subtitle subtitle subtitle"
-            "completed outstanding contacts";
+            "title contacts"
+            "subtitle subtitle"
+            "tickets tickets";
     grid-template-rows: 50px 50px 350px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     padding: 0 3% 5px;
     overflow: hidden;
 }
@@ -21,34 +21,36 @@
     grid-area: subtitle;
     justify-self: left;
 }
-.expanded-tag-row-completed {
-    grid-area: completed;
+.expanded-tag-row-tickets {
+    font-family: 'Open Sans', semi-bold;
+    grid-area: tickets;
     justify-self: left;
+    width: 90%;
 }
-.expanded-tag-row-outstanding {
-    grid-area: outstanding;
-    justify-self: left;
-}
+
 .expanded-tag-row-contacts {
     grid-area: contacts;
 }
 
+.expanded-tag-row-tbody {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
 .contacts {
+    font-family: 'Open Sans Condensed', sans-serif;
     background-color: var(--darkBlue);
     color: white;
-    height: 80%;
-    width: 80%;
+    width: 100%;
     display: grid;
     grid-template-areas:
             "contact-title"
             "contact-icon"
-            "contact-details"
-;
+            "contact-details";
     grid-template-columns: 100%;
-    grid-template-rows: 50px 100px 100px;
+    grid-template-rows: 30px 20px 20px;
     justify-items: right;
-    padding: 20px;
     text-align: right;
+    margin-top: 20px;
 }
 
 .expanded-tag-row ul {

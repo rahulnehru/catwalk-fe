@@ -7,37 +7,47 @@ const ExpandedTagRow = forwardRef((props, ref) => {
             <hr className="catwalk-hr" />
             <h1 className="expanded-tag-row-h1"> RELEASE NOTES </h1>
             <h2 className="expanded-tag-row-h2"> OVERVIEW </h2>
-            <div className="expanded-tag-row-completed">
-                <h3>COMPLETE TICKETS</h3>
-                <ul>
-                    <li>DJ-21502</li>
-                    <li>DJ-21504</li>
-                    <li>DJ-21508</li>
-                    <li>DJ-21617</li>
-                    <li>DJ-21882</li>
-                </ul>
-            </div>
-            <div className="expanded-tag-row-outstanding">
-                <h3>OUTSTANDING TICKETS</h3>
-                <ul>
-                    <li>DJ-22000</li>
-                    <li>DJ-22201</li>
-                    <li>DJ-21299</li>
-                    <li>DJ-21237</li>
-                    <li>DJ-21282</li>
-                </ul>
-            </div>
             <div className="expanded-tag-row-contacts">
                 <div className="contacts">
-                    <h2>Lead Contact</h2>
-                    <span>Icon</span>
-                    <p>
-                        Rahul Nehru <br />
-                        07755113322 <br />
-                        rnehru@deloitte.co.uk <br />
-                    </p>
+                    <b>Lead Contact</b>
+                    <p>Contact Name</p>
+                    <p>Mobile</p>
+                    <p>Email</p>
                 </div>
             </div>
+            <table className="expanded-tag-row-tickets">
+                <thead>
+                <tr>
+                    <td width="10%">TICKET</td>
+                    <td width="10%">TEAM</td>
+                    <td width="30%">DESCRIPTION</td>
+                    <td width="10%">STATUS</td>
+                    <td width="10%">REPORTER</td>
+                    <td width="10">ASSIGNEE</td>
+                    <td width="10%">FEATURE STATE</td>
+                </tr>
+                </thead>
+                <tbody className="expanded-tag-row-tbody">
+                <tr>
+                    <td>DJ-12345</td>
+                    <td>Team 1</td>
+                    <td>SET(O) - Turn on product</td>
+                    <td>Development Done</td>
+                    <td>Chris Sutton</td>
+                    <td>Carrie-Lyn Kane</td>
+                    <td>On</td>
+                </tr>
+                <tr>
+                    <td>DJ-39483</td>
+                    <td>Team 1</td>
+                    <td>SET(F) - Turn on product</td>
+                    <td>Amazing</td>
+                    <td>Chris Sutton</td>
+                    <td>Rahul Nehru</td>
+                    <td>On</td>
+                </tr>
+                </tbody>
+            </table>
             <hr className="expanded-tag-row-bottom-hr" />
         </div>
     )
