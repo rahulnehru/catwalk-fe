@@ -17,11 +17,9 @@ class TagRow extends Component {
         }
     }
 
-    getStatusButton = ({status, name}) =>
-        status === "#00FF00" ?
+    getStatusButton = ({deployable, name}) =>
+        deployable ?
             <div key={name} className="dot dot-green" /> :
-            status === "yellow" ?
-                <div key={name} className="dot dot-yellow" /> :
                 <div key={name} className="dot dot-red" />
     ;
 
