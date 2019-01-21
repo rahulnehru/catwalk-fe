@@ -22,14 +22,17 @@
     justify-self: left;
 }
 .expanded-tag-row-tickets {
+    margin-top: 50px;
     font-family: 'Open Sans', semi-bold;
     grid-area: tickets;
     justify-self: left;
+    text-align: left;
     width: 90%;
 }
 
 .expanded-tag-row-contacts {
     grid-area: contacts;
+    width: 150px;
 }
 
 .expanded-tag-row-tbody {
@@ -68,4 +71,19 @@ hr.expanded-tag-row-bottom-hr {
     width: 60%;
     bottom: 50px;
     left: 2%;
+}
+
+.dot.dot-green.small {
+    width: 15px;
+    height: 15px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: 0 0 10px grey;
+}
+
+.dot.dot-red.small {
+    background-image: var(--red);
+    width: 15px;
+    height: 15px;
 }

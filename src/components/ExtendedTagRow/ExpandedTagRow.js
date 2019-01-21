@@ -18,6 +18,7 @@ const ExpandedTagRow = forwardRef((props, ref) => {
             <table className="expanded-tag-row-tickets">
                 <thead>
                 <tr>
+                    <td width="5%"></td>
                     <td width="10%">TICKET</td>
                     <td width="10%">TEAM</td>
                     <td width="30%">DESCRIPTION</td>
@@ -29,6 +30,7 @@ const ExpandedTagRow = forwardRef((props, ref) => {
                 </thead>
                 <tbody className="expanded-tag-row-tbody">
                 <tr>
+                    <td><div key={"name"} className="dot dot-red small" /></td>
                     <td>DJ-12345</td>
                     <td>Team 1</td>
                     <td>SET(O) - Turn on product</td>
@@ -38,6 +40,7 @@ const ExpandedTagRow = forwardRef((props, ref) => {
                     <td>On</td>
                 </tr>
                 <tr>
+                    <td><div key={"name"} className="dot dot-green small" /></td>
                     <td>DJ-39483</td>
                     <td>Team 1</td>
                     <td>SET(F) - Turn on product</td>
