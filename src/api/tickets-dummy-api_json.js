@@ -15,7 +15,8 @@ const ticketsDummyResponseJson = [
         reporter: 'Christopher Sutton',
         assignee: 'Rahul Nehru',
         description: 'Bug fixes',
-        featureState: 'On'
+        featureState: 'On',
+        deployable: false
     },
     {
         ticket: 'DJ-12346',
@@ -25,7 +26,8 @@ const ticketsDummyResponseJson = [
         reporter: 'Christopher Sutton',
         assignee: 'Rahul Nehru',
         description: 'Bug fixes',
-        featureState: 'On'
+        featureState: 'On',
+        deployable: true
     }
 ];
 

@@ -2,6 +2,10 @@ import React, {forwardRef} from 'react';
 import "./ExpandedTagRow.css";
 import { ticketDummyApiResponseJson } from "../../api/tickets-dummy-api_json";
 
+const getColorFromJiraState = (deployable) => {
+    return deployable ? 'dot dot-green small' : 'dot dot-red small'
+};
+
 
 const ExpandedTagRow = forwardRef((props, ref) => {
     return (
@@ -34,7 +38,7 @@ const ExpandedTagRow = forwardRef((props, ref) => {
                 {
                     ticketDummyApiResponseJson(2).map(s =>
                         <tr>
-                            <td><div key={"name"} className="dot dot-red small" /></td>
+                            <td><div key={s.key} className={getColorFromJiraState(s.deployable)} /></td>
                             <td>{s.ticket}</td>
                             <td>{s.team}</td>
                             <td>{s.description}</td>
