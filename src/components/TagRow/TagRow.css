@@ -29,9 +29,9 @@
 .dot {
     width: 35px;
     height: 35px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
+    border: #fff2fe solid 2px;
     border-radius: 50%;
+    margin: 15px;
     box-shadow: 0 0 20px grey;
 }
 
