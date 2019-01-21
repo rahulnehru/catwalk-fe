@@ -62,11 +62,11 @@ h4, h5, h6 {
 
 header {
   padding-top: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
   background: #272345;
   color: white;
   text-align: center;
-  box-shadow: #4e555b;
+  box-shadow: 0 0 10px #4e555b;
 }
 
 h4 {

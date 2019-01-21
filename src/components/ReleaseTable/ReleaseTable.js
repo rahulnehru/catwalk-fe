@@ -73,7 +73,7 @@ class ReleaseTable extends Component {
             <div className="release-table">
                 <header>
                     <div className="catwalk-row header-row">
-                        <h3>TAG</h3>
+                        <h3>T A G</h3>
                         {headers.map(h => <h3 key={h}>{h.toUpperCase()}</h3>)}
                     </div>
                 </header>
