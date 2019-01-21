@@ -1,57 +1,63 @@
-import React from 'react';
+import React, {forwardRef, Component} from 'react';
+import posed from "react-pose";
+
 import "./TagRow.css";
 import ExpandedTagRow from "../ExtendedTagRow/ExpandedTagRow";
 
-const TagRow = (props) => {
+const PosedExpandedTagRow = posed(ExpandedTagRow)({
+    closed: { height: 0 },
+    open: { height: 'auto' }
+});
 
-    /*
-       props: tag ->
-                  tag.key,
-                  tag.name,
-                  tag.components
-                  -> tag.components.key/name/component/status
-              isExtended -> Boolean
-              togglExpandClick -> Function,
-              components -> Array[String]
-     */
-    const {tag, isExtended, toggleExpandClick, components} = props;
+class TagRow extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isExtended: false
+        }
+    }
 
-    const getStatusButton = ({status, name}) =>
+    getStatusButton = ({status, name}) =>
         status === "green" ?
             <div key={name} className="dot dot-green" /> :
             status === "yellow" ?
                 <div key={name} className="dot dot-yellow" /> :
-                <div key={name} className="dot dot-red" />;
+                <div key={name} className="dot dot-red" />
+    ;
 
-    const getRowForTag = (tag) => {
+    getRowForTag = (tag) => {
         let row = [];
-        for (let c of components) {
+        for (let c of this.props.components) {
             let t = tag.components.find(o => o.component === c);
-            if (t) row.push(getStatusButton(t));
+            if (t) row.push(this.getStatusButton(t));
             else row.push(<td/>);
         }
         return row;
     };
 
-    return (
-        <div className={`row ${isExtended ? "expanded" : ""}`}>
-            <div key={tag.name} className="catwalk-row tag-row" >
-                <div className="green-stripe" />
-                <h3>
-                    {tag.tag.toUpperCase()}
-                </h3>
-                {
-                    getRowForTag(tag)
-                }
-                <div className="expand" onClick={() => toggleExpandClick(tag.key)}>
-                    {isExtended ? <h1 style={{marginTop: "-3px", marginLeft: "1px"}}>-</h1> : <h1>+</h1> }
-                </div>
-            </div>
-            {
-                isExtended &&  <ExpandedTagRow />
-            }
-        </div>
-    )
-};
+    toggleExpandClick = () => this.setState(prevState => ({isExtended: !prevState.isExtended}));
 
-export default TagRow;
+    render() {
+        const { tag } = this.props;
+        const { isExtended } = this.state;
+        return (
+            <div ref={this.props.innerRef} className={`row ${isExtended ? "expanded" : ""}`}>
+                <div key={tag.tag} className="catwalk-row tag-row" >
+                    <div className="green-stripe" />
+                    <h3>
+                        {tag.tag.toUpperCase()}
+                    </h3>
+                    {
+                        this.getRowForTag(tag)
+                    }
+                    <div className="expand" onClick={this.toggleExpandClick}>
+                        {isExtended ? <h1 style={{marginTop: "-3px", marginLeft: "1px"}}>-</h1> : <h1>+</h1> }
+                    </div>
+                </div>
+                <PosedExpandedTagRow key={`${tag.tag}-extended-row`} pose={isExtended ? "open" : "closed"} />
+            </div>
+        )
+    }
+}
+
+export default forwardRef((props, ref) => <TagRow {...props} innerRef={ref} />)

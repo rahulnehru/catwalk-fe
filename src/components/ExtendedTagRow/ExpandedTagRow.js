@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 import "./ExpandedTagRow.css";
 
-const ExpandedTagRow = (props) => {
+const ExpandedTagRow = forwardRef((props, ref) => {
     return (
-        <div className="expanded-tag-row">
+        <div ref={ref} className="expanded-tag-row">
             <hr className="catwalk-hr" />
             <h1 className="expanded-tag-row-h1"> RELEASE NOTES </h1>
             <h2 className="expanded-tag-row-h2"> OVERVIEW </h2>
@@ -41,6 +41,6 @@ const ExpandedTagRow = (props) => {
             <hr className="expanded-tag-row-bottom-hr" />
         </div>
     )
-};
+});
 
 export default ExpandedTagRow;

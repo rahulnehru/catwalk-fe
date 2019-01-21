@@ -1,8 +1,14 @@
-.row:hover, .row.expanded {
+.row.expanded,
+.tag-row:hover {
     margin: -10px -10px;
     box-shadow: 2px 2px 20px #4e555b;
     position: relative;
     z-index: 100;
+}
+
+.row.expanded .tag-row:hover {
+    box-shadow: none;
+    margin: 5px 0;
 }
 
 .tag-row {
@@ -46,13 +52,13 @@
     left: 0;
     width        : 0;
     height       : 0;
-    border-left   : 25px solid #019745;
+    border-left   : 20px solid #019745;
     border-right  : 80px solid transparent;
     border-bottom : 80px solid transparent;
 }
 
-.row:hover .green-stripe, .expanded .green-stripe {
-    border-left   : 25px solid #ff0096;
+.tag-row:hover .green-stripe, .expanded .green-stripe {
+    border-left   : 20px solid #ff0096;
     border-bottom : 100px solid transparent;
 }
 

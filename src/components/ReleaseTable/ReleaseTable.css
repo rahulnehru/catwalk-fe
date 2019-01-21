@@ -33,7 +33,7 @@ hr {
 
 hr.catwalk-hr {
     position: absolute;
-    top: 0;
+    top: 4px;
     right: 2%;
     width: 96%;
 }
