@@ -1,5 +1,7 @@
 import React, {forwardRef} from 'react';
 import "./ExpandedTagRow.css";
+import { ticketDummyApiResponseJson } from "../../api/tickets-dummy-api_json";
+
 
 const ExpandedTagRow = forwardRef((props, ref) => {
     return (
@@ -29,26 +31,20 @@ const ExpandedTagRow = forwardRef((props, ref) => {
                 </tr>
                 </thead>
                 <tbody className="expanded-tag-row-tbody">
-                <tr>
-                    <td><div key={"name"} className="dot dot-red small" /></td>
-                    <td>DJ-12345</td>
-                    <td>Team 1</td>
-                    <td>SET(O) - Turn on product</td>
-                    <td>Development Done</td>
-                    <td>Chris Sutton</td>
-                    <td>Carrie-Lyn Kane</td>
-                    <td>On</td>
-                </tr>
-                <tr>
-                    <td><div key={"name"} className="dot dot-green small" /></td>
-                    <td>DJ-39483</td>
-                    <td>Team 1</td>
-                    <td>SET(F) - Turn on product</td>
-                    <td>Amazing</td>
-                    <td>Chris Sutton</td>
-                    <td>Rahul Nehru</td>
-                    <td>On</td>
-                </tr>
+                {
+                    ticketDummyApiResponseJson(2).map(s =>
+                        <tr>
+                            <td><div key={"name"} className="dot dot-red small" /></td>
+                            <td>{s.ticket}</td>
+                            <td>{s.team}</td>
+                            <td>{s.description}</td>
+                            <td>{s.status}</td>
+                            <td>{s.reporter}</td>
+                            <td>{s.assignee}</td>
+                            <td>{s.featureState}</td>
+                        </tr>
+                    )
+                }
                 </tbody>
             </table>
             <hr className="expanded-tag-row-bottom-hr" />

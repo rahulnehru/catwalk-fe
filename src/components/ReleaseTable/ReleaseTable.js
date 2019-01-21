@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import posed, {PoseGroup} from "react-pose";
 
-import { dummyApiResponseJson } from "../../api/dummy-api_json";
+import { dummyApiResponseJson } from "../../api/tags-dummy-api_json";
 import "./ReleaseTable.css";
 import TagRow from "../TagRow/TagRow";
 
