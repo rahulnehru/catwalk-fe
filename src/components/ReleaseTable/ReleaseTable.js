@@ -14,14 +14,15 @@ class ReleaseTable extends Component {
         super();
         this.state = {
             tags: [],
-            extendedTagKey: -1
+            extendedTagKey: -1,
+            page: 0
         }
     }
 
     componentWillMount = () => {
         // Specify number of tags to simulate
         this.setState({
-            tags: dummyApiResponseJson(5)
+            tags: dummyApiResponseJson(5, this.state.page)
         })
     };
 

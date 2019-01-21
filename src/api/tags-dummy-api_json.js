@@ -211,10 +211,10 @@ const dummyResponseJson = [
   },
 ];
 
-export default (length) => {
-  const response = [];
-  for (let i = 0; i < length && i < dummyResponseJson.length; i += 1) {
-    response.push(dummyResponseJson[i]);
-  }
-  return response;
+export default (length, page) => {
+    const response = [];
+    for (let i = page; i < length && i < dummyResponseJson.length; i += 1) {
+        response.push(dummyResponseJson[i]);
+    }
+    return response;
 };
