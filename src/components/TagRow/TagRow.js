@@ -18,7 +18,7 @@ class TagRow extends Component {
     }
 
     getStatusButton = ({status, name}) =>
-        status === "green" ?
+        status === "#00FF00" ?
             <div key={name} className="dot dot-green" /> :
             status === "yellow" ?
                 <div key={name} className="dot dot-yellow" /> :

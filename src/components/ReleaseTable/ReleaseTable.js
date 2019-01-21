@@ -1,12 +1,11 @@
 import React, {Component} from "react";
 import posed, {PoseGroup} from "react-pose";
 
-import dummyApiResponseJson from "../../api/tags-dummy-api_json";
 import "./ReleaseTable.css";
 import TagRow from "../TagRow/TagRow";
 
 const PosedTagRow = posed(TagRow)({
-    flip: {transition : { ease: 'easeInOut', duration : 500}}
+    flip: {transition: {ease: 'easeInOut', duration: 500}}
 });
 
 class ReleaseTable extends Component {
@@ -20,10 +19,16 @@ class ReleaseTable extends Component {
     }
 
     componentWillMount = () => {
-        // Specify number of tags to simulate
-        this.setState({
-            tags: dummyApiResponseJson(5, this.state.page)
-        })
+        fetch(`https://localhost:5001/api/GetStatus/1?page=${this.state.page}&pageSize=10`)
+            .then(response => response.json())
+            .then(tags => {
+                    this.setState({
+                        tags: tags
+                    }, () => {
+                        console.log(this.state.tags);
+                    })
+                }
+            );
     };
 
     getComponents = () => {
@@ -68,7 +73,7 @@ class ReleaseTable extends Component {
     shuffle = () => this.setState({tags: this._shuffle(this.state.tags)});
 
     render() {
-        const headers = this.getComponents();
+        let headers = this.getComponents();
         return (
             <div className="release-table">
                 <header>
@@ -78,18 +83,18 @@ class ReleaseTable extends Component {
                     </div>
                 </header>
                 <div className="table-body">
-                <PoseGroup>
-                    {
-                        this.state.tags.map(tag =>
-                            <PosedTagRow
-                                key={tag.tag}
-                                tag={tag}
-                                components={headers}
-                                toggleExpandClick={(key) => this.toggleExpandClick(key)}
-                            />
-                        )
-                    }
-                </PoseGroup>
+                    <PoseGroup>
+                        {
+                            this.state.tags.map(tag =>
+                                <PosedTagRow
+                                    key={tag.tag}
+                                    tag={tag}
+                                    components={headers}
+                                    toggleExpandClick={(key) => this.toggleExpandClick(key)}
+                                />
+                            )
+                        }
+                    </PoseGroup>
                     <button onClick={this.shuffle}>Shuffle</button>
                 </div>
             </div>
