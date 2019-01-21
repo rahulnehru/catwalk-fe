@@ -22,16 +22,12 @@ class ReleaseTable extends Component {
 
     fetchData = () => {
         let pageNumber = this.state.page;
-        if (this.state.page > 200) {
-            this.setState({ hasMorePages: false });
-            return;
-        }
-        fetch(`https://localhost:5001/api/GetStatus/1?page=${pageNumber}&pageSize=10`)
+        fetch(`https://localhost:5001/api/GetStatus/1?page=${pageNumber}&pageSize=8`)
             .then(response => response.json())
             .then(tags => {
                     this.setState({
                         page: pageNumber+1,
-                        tags: tags
+                        tags: this.state.tags.concat(tags)
                     }, () => {
                         console.log(this.state.tags);
                     })
@@ -40,7 +36,7 @@ class ReleaseTable extends Component {
     };
 
     componentWillMount = () => {
-        fetch(`https://localhost:5001/api/GetStatus/1?page=0&pageSize=10`)
+        fetch(`https://localhost:5001/api/GetStatus/1?page=0&pageSize=8`)
             .then(response => response.json())
             .then(tags => {
                     this.setState({
