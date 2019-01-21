@@ -3,6 +3,7 @@ import posed, {PoseGroup} from "react-pose";
 
 import "./ReleaseTable.css";
 import TagRow from "../TagRow/TagRow";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const PosedTagRow = posed(TagRow)({
     flip: {transition: {ease: 'easeInOut', duration: 500}}
@@ -18,17 +19,22 @@ class ReleaseTable extends Component {
         }
     }
 
-    componentWillMount = () => {
-        fetch(`https://localhost:5001/api/GetStatus/1?page=${this.state.page}&pageSize=10`)
+    fetchData = (pageNumber) => {
+        fetch(`https://localhost:5001/api/GetStatus/1?page=${pageNumber}&pageSize=10`)
             .then(response => response.json())
             .then(tags => {
                     this.setState({
                         tags: tags
                     }, () => {
                         console.log(this.state.tags);
+                        this.setState({page: pageNumber++})
                     })
                 }
             );
+    };
+
+    componentWillMount = () => {
+        this.fetchData(this.state.page)
     };
 
     getComponents = () => {
@@ -82,21 +88,30 @@ class ReleaseTable extends Component {
                         {headers.map(h => <h3 key={h}>{h.toUpperCase()}</h3>)}
                     </div>
                 </header>
-                <div className="table-body">
-                    <PoseGroup>
-                        {
-                            this.state.tags.map(tag =>
-                                <PosedTagRow
-                                    key={tag.tag}
-                                    tag={tag}
-                                    components={headers}
-                                    toggleExpandClick={(key) => this.toggleExpandClick(key)}
-                                />
-                            )
-                        }
-                    </PoseGroup>
-                    <button onClick={this.shuffle}>Shuffle</button>
-                </div>
+                <InfiniteScroll
+                    dataLength={300}
+                    next={this.fetchData(this.state.page)}
+                    hasMore={true}
+                    loader={<h4>Loading...</h4>}
+                    endMessage={<p style={{textAlign: "center"}}><b>Yay! You have seen it all</b></p>}>
+                    >
+
+                    <div className="table-body">
+                        <PoseGroup>
+                            {
+                                this.state.tags.map(tag =>
+                                    <PosedTagRow
+                                        key={tag.tag}
+                                        tag={tag}
+                                        components={headers}
+                                        toggleExpandClick={(key) => this.toggleExpandClick(key)}
+                                    />
+                                )
+                            }
+                        </PoseGroup>
+                        <button onClick={this.shuffle}>Shuffle</button>
+                    </div>
+                </InfiniteScroll>
             </div>
         )
     }
