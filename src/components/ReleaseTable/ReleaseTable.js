@@ -89,7 +89,7 @@ class ReleaseTable extends Component {
                     </div>
                 </header>
                 <InfiniteScroll
-                    dataLength={300}
+                    dataLength={1}
                     next={this.fetchData(this.state.page)}
                     hasMore={true}
                     loader={<h4>Loading...</h4>}
@@ -109,7 +109,6 @@ class ReleaseTable extends Component {
                                 )
                             }
                         </PoseGroup>
-                        <button onClick={this.shuffle}>Shuffle</button>
                     </div>
                 </InfiniteScroll>
             </div>
