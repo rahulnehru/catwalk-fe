@@ -23,7 +23,7 @@
 }
 .expanded-tag-row-tickets {
     margin-top: 50px;
-    font-family: 'Open Sans', semi-bold;
+    font-family: 'Open Sans', sans-serif, semi-bold;
     grid-area: tickets;
     justify-self: left;
     text-align: left;

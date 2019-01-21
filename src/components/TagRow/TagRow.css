@@ -1,3 +1,9 @@
+.tag-row {
+    background-color: white;
+    margin: 5px 0;
+    position: relative;
+}
+
 .row.expanded,
 .tag-row:hover {
     margin: -10px -10px;
@@ -6,24 +12,18 @@
     z-index: 100;
 }
 
+.tag-row:hover, div.expanded .tag-row {
+    grid-template-rows: repeat(1, 100px);
+}
+
 .row.expanded .tag-row:hover {
     box-shadow: none;
     margin: 5px 0;
 }
 
-.tag-row {
-    background-color: white;
-    margin: 5px 0;
-    position: relative;
-}
-
 .expanded.tag-row:hover {
     z-index: auto;
     box-shadow: none;
-}
-
-.tag-row:hover, div.expanded .tag-row {
-    grid-template-rows: repeat(1, 100px);
 }
 
 .dot {
@@ -57,7 +57,7 @@
     border-bottom : 80px solid transparent;
 }
 
-.tag-row:hover .green-stripe, .expanded .green-stripe {
+.expanded .green-stripe, .tag-row:hover .green-stripe {
     border-left   : 20px solid #ff0096;
     border-bottom : 100px solid transparent;
 }
