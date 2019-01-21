@@ -15,26 +15,42 @@ class ReleaseTable extends Component {
         this.state = {
             tags: [],
             extendedTagKey: -1,
-            page: 0
+            page: 0,
+            hasMorePages: true
         }
     }
 
-    fetchData = (pageNumber) => {
+    fetchData = () => {
+        let pageNumber = this.state.page;
+        if (this.state.page > 200) {
+            this.setState({ hasMorePages: false });
+            return;
+        }
         fetch(`https://localhost:5001/api/GetStatus/1?page=${pageNumber}&pageSize=10`)
             .then(response => response.json())
             .then(tags => {
                     this.setState({
+                        page: pageNumber+1,
                         tags: tags
                     }, () => {
                         console.log(this.state.tags);
-                        this.setState({page: pageNumber++})
                     })
                 }
             );
     };
 
     componentWillMount = () => {
-        this.fetchData(this.state.page)
+        fetch(`https://localhost:5001/api/GetStatus/1?page=0&pageSize=10`)
+            .then(response => response.json())
+            .then(tags => {
+                    this.setState({
+                        page: this.state.page + 1,
+                        tags: tags
+                    }, () => {
+                        console.log(this.state.tags);
+                    })
+                }
+            );
     };
 
     getComponents = () => {
@@ -76,7 +92,6 @@ class ReleaseTable extends Component {
         return array;
     };
 
-    shuffle = () => this.setState({tags: this._shuffle(this.state.tags)});
 
     render() {
         let headers = this.getComponents();
@@ -89,11 +104,11 @@ class ReleaseTable extends Component {
                     </div>
                 </header>
                 <InfiniteScroll
-                    dataLength={1}
-                    next={this.fetchData(this.state.page)}
-                    hasMore={true}
+                    dataLength={100}
+                    next={this.fetchData}
+                    hasMore={this.state.hasMorePages}
                     loader={<h4>Loading...</h4>}
-                    endMessage={<p style={{textAlign: "center"}}><b>Yay! You have seen it all</b></p>}>
+                    endMessage={<h4 style={{textAlign: "center"}}><b>Yay! You have seen it all</b></h4>}>
                     >
 
                     <div className="table-body">

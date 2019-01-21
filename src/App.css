@@ -67,6 +67,8 @@ header {
   color: white;
   text-align: center;
   box-shadow: 0 0 10px #4e555b;
+  overflow-y:scroll;
+  overflow-x:hidden;
 }
 
 h4 {
