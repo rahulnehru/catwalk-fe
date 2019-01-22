@@ -1,3 +1,26 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(247, 242, 242);
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
 :root {
   --rowHeight: 80px;
   --green: radial-gradient(#019745 , #007b34);
@@ -8,11 +31,11 @@
   --semiBold: 200;
 }
 
-.App {
+.app {
   text-align: center;
 }
 
-.App-header {
+.app-header {
   background-color: #ffffff;
   min-height: 1vh;
   display: flex;

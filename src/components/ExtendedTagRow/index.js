@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
-import './ExpandedTagRow.css';
+
+import './style.css';
 import ticketDummyApiResponseJson from '../../api/tickets-dummy-api_json';
 
 const getColorFromJiraState = deployable => (deployable ? 'dot dot-green small' : 'dot dot-red small');
-
 
 const ExpandedTagRow = forwardRef((props, ref) => (
   <div ref={ref} className="expanded-tag-row">
@@ -33,19 +33,19 @@ const ExpandedTagRow = forwardRef((props, ref) => (
       </thead>
       <tbody className="expanded-tag-row-tbody">
         {
-                    ticketDummyApiResponseJson(2).map(s => (
-                      <tr>
-                        <td><div key={s.key} className={getColorFromJiraState(s.deployable)} /></td>
-                        <td>{s.ticket}</td>
-                        <td>{s.team}</td>
-                        <td>{s.description}</td>
-                        <td>{s.status}</td>
-                        <td>{s.reporter}</td>
-                        <td>{s.assignee}</td>
-                        <td>{s.featureState}</td>
-                      </tr>
-                    ))
-                }
+          ticketDummyApiResponseJson(2).map(s => (
+            <tr>
+              <td><div key={s.key} className={getColorFromJiraState(s.deployable)} /></td>
+              <td>{s.ticket}</td>
+              <td>{s.team}</td>
+              <td>{s.description}</td>
+              <td>{s.status}</td>
+              <td>{s.reporter}</td>
+              <td>{s.assignee}</td>
+              <td>{s.featureState}</td>
+            </tr>
+          ))
+        }
       </tbody>
     </table>
     <hr className="expanded-tag-row-bottom-hr" />
