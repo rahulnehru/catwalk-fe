@@ -35,7 +35,7 @@ class ReleaseTable extends Component {
             );
     };
 
-    componentWillMount = () => {
+    componentDidMount = () => {
         fetch(`https://localhost:5001/api/GetStatus/1?page=0&pageSize=8`)
             .then(response => response.json())
             .then(tags => {
